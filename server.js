@@ -14,13 +14,10 @@ const app = express();
 
 // Middleware
 app.use(cors({
-    origin: [
-        'http://localhost:3000',
-        'https://ovedo-web.web.app',
-        'https://ovedo-web.firebaseapp.com',
-        'https://ovedo-web.vercel.app' // Add Vercel domain if needed
-    ],
-    credentials: true
+    origin: true, // Allow all origins for now
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
 }));
 app.use(express.json());
 
